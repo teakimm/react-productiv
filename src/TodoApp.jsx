@@ -25,6 +25,8 @@ function TodoApp({ initialTodos = [] }) {
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
 
+    setTodos(todos => todos.map(t => t.id === updatedTodo.id ? updatedTodo : t));
+
   }
 
   /** delete a todo by id */
@@ -37,7 +39,7 @@ function TodoApp({ initialTodos = [] }) {
 
         <div className="col-md-6">
 
-          <EditableTodoList todos={todos} /> OR
+          <EditableTodoList todos={todos} update={update} remove={remove} /> OR
           <span className="text-muted">You have no todos.</span>
         </div>
 
