@@ -12,43 +12,45 @@ import TodoForm from "./TodoForm";
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
-function EditableTodo() {
+function EditableTodo({ todo, update, remove }) {
 
   /** Toggle if this is being edited */
-  function toggleEdit() { }
+  function toggleEdit() {
+    return <TodoForm />;
+  }
 
   /** Call remove fn passed to this. */
-  function handleDelete() { }
+  function handleDelete() {
+    remove(todo.id);
+  }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
-  function handleSave(formData) { }
+  function handleSave(formData) {
+    update(todo.id);
+  }
 
   return (
-      <div className="EditableTodo">
+    <div className="EditableTodo">
 
-                EITHER
 
-                <TodoForm />
 
-                OR
-
-                <div className="mb-3">
-                  <div className="float-end text-sm-end">
-                    <button
-                        className="EditableTodo-toggle btn-link btn btn-sm"
-                        onClick={toggleEdit}>
-                      Edit
-                    </button>
-                    <button
-                        className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
-                        onClick={handleDelete}>
-                      Del
-                    </button>
-                  </div>
-                  <Todo />
-                </div>
-
+      <div className="mb-3">
+        <div className="float-end text-sm-end">
+          <button
+            className="EditableTodo-toggle btn-link btn btn-sm"
+            onClick={toggleEdit}>
+            Edit
+          </button>
+          <button
+            className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+            onClick={handleDelete}>
+            Del
+          </button>
+        </div>
+        <Todo />
       </div>
+
+    </div>
   );
 }
 
