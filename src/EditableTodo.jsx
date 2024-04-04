@@ -34,7 +34,8 @@ function EditableTodo({ todo, update, remove }) {
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
     update({ id: todo.id, ...formData });
-    setShowEditForm(showEditForm => showEditForm = !showEditForm);
+    //TODO: can use toggleEdit()
+    toggleEdit();
   }
 
   return (
@@ -43,9 +44,9 @@ function EditableTodo({ todo, update, remove }) {
 
     <div className="EditableTodo">
 
-      {showEditForm ? <TodoForm initialFormData={todo} handleSave={handleSave} /> :
-
-
+      {showEditForm
+        ? <TodoForm initialFormData={todo} handleSave={handleSave} />
+        :
         <div className="mb-3">
           <div className="float-end text-sm-end">
             <button
@@ -59,8 +60,9 @@ function EditableTodo({ todo, update, remove }) {
               Del
             </button>
           </div>
-          <Todo id={todo.id} title={todo.title} description={todo.description}
-            priority={todo.priority} />
+          <Todo
+            todo={todo}
+          />
         </div>
       }
     </div>

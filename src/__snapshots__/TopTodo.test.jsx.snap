@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div
+    class="Todo"
+  >
+    <div>
+      <b>
+        this is another test
+      </b>
+       
+      <small>
+        (
+        priority: 1
+        )
+      </small>
+    </div>
+    <div>
+      <small>
+        don't read this
+      </small>
+    </div>
+  </div>
+</div>
+`;

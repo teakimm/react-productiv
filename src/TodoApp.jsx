@@ -46,14 +46,21 @@ function TodoApp({ initialTodos = [] }) {
 
         <div className="col-md-6">
           {todos.length > 0
-            ? <EditableTodoList todos={todos} update={update} remove={remove} />
-            : <span className="text-muted">You have no todos.</span>}
+            ? <EditableTodoList
+              todos={todos}
+              update={update}
+              remove={remove}
+            />
+            : <span className="text-muted">You have no todos.</span>
+          }
         </div>
 
         <div className="col-md-6">
           <section className="mb-4">
             <h3>Top Todo</h3>
-            {todos.length > 0 ? <TopTodo todos={todos} /> : "No todos yet!"}
+            {todos.length > 0
+              ? <TopTodo todos={todos} />
+              : "No todos yet!"}
           </section>
 
           <section>

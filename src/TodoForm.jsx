@@ -31,6 +31,16 @@ function TodoForm({ initialFormData = initialState, handleSave }) {
     }));
   }
 
+  /** Update local state w/curr state of input elem if it is a number */
+  function handleNumberChange(evt) {
+    const { name, value } = evt.target;
+    setFormData(fData => ({
+      ...fData,
+      [name]: Number(value),
+    }));
+  }
+
+
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -73,7 +83,7 @@ function TodoForm({ initialFormData = initialState, handleSave }) {
           <select id="newTodo-priority"
             name="priority"
             value={formData.priority}
-            onChange={handleChange}
+            onChange={handleNumberChange}
             className="form-control form-control-sm d-inline-flex"
           >
             <option value={1}>Ultra-Über</option>
