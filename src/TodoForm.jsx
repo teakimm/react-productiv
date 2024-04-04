@@ -7,6 +7,9 @@ import React, { useState } from "react";
  * - initialFormData
  * - handleSave: function to call in parent.
  *
+ * State:
+ * -formData: State of the form, changes with input changes
+ *
  * { TodoApp, EditableTodo } -> TodoForm
  */
 

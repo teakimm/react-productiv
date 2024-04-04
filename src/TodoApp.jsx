@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import TopTodo from "./TopTodo";
+import TodoForm from "./TodoForm";
 import EditableTodoList from "./EditableTodoList";
 
 /** App for managing a todo list.
@@ -20,12 +21,13 @@ function TodoApp({ initialTodos = [] }) {
 
   /** add a new todo to list */
   function create(newTodo) {
+    const createdTodo = { ...newTodo, id: uuid() };
+    setTodos(todos => [...todos, createdTodo]);
 
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-    console.log(updatedTodo);
     setTodos(todos =>
       todos.map(t =>
         t.id === updatedTodo.id ? updatedTodo : t
@@ -35,7 +37,7 @@ function TodoApp({ initialTodos = [] }) {
 
   /** delete a todo by id */
   function remove(id) {
-
+    setTodos(todos => todos.filter(t => t.id !== id));
   }
 
   return (
@@ -55,8 +57,10 @@ function TodoApp({ initialTodos = [] }) {
           </section>
 
           <section>
-            <h3 className="mb-3">Add Nü</h3>
-            FIXME
+            <div>
+              <h3 className="mb-3">Add Nu</h3>
+              <TodoForm handleSave={create} />
+            </div>
           </section>
         </div>
 
