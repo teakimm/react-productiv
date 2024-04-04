@@ -20,17 +20,22 @@ function TodoApp({ initialTodos = [] }) {
 
   /** add a new todo to list */
   function create(newTodo) {
+
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-
-    setTodos(todos => todos.map(t => t.id === updatedTodo.id ? updatedTodo : t));
-
+    console.log(updatedTodo);
+    setTodos(todos =>
+      todos.map(t =>
+        t.id === updatedTodo.id ? updatedTodo : t
+      )
+    );
   }
 
   /** delete a todo by id */
   function remove(id) {
+
   }
 
   return (
@@ -38,16 +43,15 @@ function TodoApp({ initialTodos = [] }) {
       <div className="row">
 
         <div className="col-md-6">
-
-          <EditableTodoList todos={todos} update={update} remove={remove} /> OR
-          <span className="text-muted">You have no todos.</span>
+          {todos.length > 0
+            ? <EditableTodoList todos={todos} update={update} remove={remove} />
+            : <span className="text-muted">You have no todos.</span>}
         </div>
 
         <div className="col-md-6">
-          (if no top todo, omit this whole section)
           <section className="mb-4">
             <h3>Top Todo</h3>
-            <TopTodo />
+            {todos.length > 0 ? <TopTodo todos={todos} /> : "No todos yet!"}
           </section>
 
           <section>

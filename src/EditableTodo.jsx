@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
+import TopTodo from "./TopTodo";
 
 /** Show editable todo item.
  *
@@ -32,7 +33,8 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
-    update(todo.id);
+    update({ id: todo.id, ...formData });
+    setShowEditForm(showEditForm => showEditForm = !showEditForm);
   }
 
   return (
@@ -57,7 +59,8 @@ function EditableTodo({ todo, update, remove }) {
               Del
             </button>
           </div>
-          <Todo />
+          <Todo id={todo.id} title={todo.title} description={todo.description}
+            priority={todo.priority} />
         </div>
       }
     </div>
