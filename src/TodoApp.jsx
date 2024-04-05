@@ -24,7 +24,7 @@ function TodoApp({ initialTodos = currentTodos || [] }) {
 
   /** add a new todo to list */
   function create(newTodo) {
-    const createdTodo = { ...newTodo, id: uuid() };
+    const createdTodo = { ...newTodo, id: uuid(), completed: false };
     setTodos(todos => [...todos, createdTodo]);
   }
 
@@ -42,6 +42,11 @@ function TodoApp({ initialTodos = currentTodos || [] }) {
     setTodos(todos => todos.filter(t => t.id !== id));
   }
 
+  function complete(todo) {
+    setTodos(todos => todos.map(t => t.id === id ? [...t, t.completed = true] : t));
+
+  }
+
   localStorage.setItem("todos", JSON.stringify(todos));
 
   return (
@@ -54,6 +59,7 @@ function TodoApp({ initialTodos = currentTodos || [] }) {
               todos={todos}
               update={update}
               remove={remove}
+              complete={complete}
             />
             : <span className="text-muted">You have no todos.</span>
           }

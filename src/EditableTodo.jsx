@@ -16,7 +16,7 @@ import TopTodo from "./TopTodo";
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
-function EditableTodo({ todo, update, remove }) {
+function EditableTodo({ todo, update, remove, complete }) {
 
   const [showEditForm, setShowEditForm] = useState(false);
 
@@ -35,6 +35,10 @@ function EditableTodo({ todo, update, remove }) {
   function handleSave(formData) {
     update({ id: todo.id, ...formData });
     toggleEdit();
+  }
+
+  function completedOrNot() {
+    complete(todo.id);
   }
 
   return (
@@ -57,6 +61,11 @@ function EditableTodo({ todo, update, remove }) {
               className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
               onClick={handleDelete}>
               Del
+            </button>
+            <button
+              className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+              onClick={completedOrNot}>
+              Completed
             </button>
           </div>
           <Todo

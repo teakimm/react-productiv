@@ -10,10 +10,22 @@ import React from "react";
 
 function Todo({ todo }) {
   return (
-    <div className="Todo">
-      <div><b>{todo.title}</b> <small>({`priority: ${todo.priority}`})</small></div>
-      <div><small>{todo.description}</small></div>
+    <div>
+      {todo.completed === false ?
+        <div className="Todo">
+          <div><b>{todo.title}</b> <small>({`priority: ${todo.priority}`})</small></div>
+          <div><small>{todo.description}</small></div>
+        </div>
+        :
+        <div className="Todo">
+          <div><b><s>{todo.title}</s></b> <small>({`priority: ${todo.priority}`})</small></div>
+          <div><small>{todo.description}</small></div>
+        </div>
+
+
+      }
     </div>
+
   );
 }
 

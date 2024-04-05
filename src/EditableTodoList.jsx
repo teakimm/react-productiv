@@ -13,7 +13,7 @@ import EditableTodo from "./EditableTodo";
 
 
 
-function EditableTodoList({ todos, update, remove }) {
+function EditableTodoList({ todos, update, remove, complete }) {
 
   return (
     <div>
@@ -22,6 +22,7 @@ function EditableTodoList({ todos, update, remove }) {
           todo={t}
           update={update}
           remove={remove}
+          complete={complete}
           key={t.id}
         />)}
     </div>
