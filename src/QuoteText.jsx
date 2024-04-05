@@ -15,10 +15,13 @@ import "./App.css";
 function QuoteText({ quoteText, handleButtonClick }) {
 
     return (
-        <div>
+        <div className="mb-3">
             {quoteText.text ?
-                <h4>{quoteText.text} - <em>{quoteText.author}</em></h4> : ""}
-            <div><button onClick={handleButtonClick}>Get Quote</button></div>
+                <h6 className="mt-3">{quoteText.text} - <em>{quoteText.author}</em></h6> : ""}
+            <div><button className="mt-3 btn-light rig btn btn-sm"
+                onClick={handleButtonClick}>
+                Get Quote
+            </button></div>
         </div>
 
     );

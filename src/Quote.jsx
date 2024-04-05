@@ -25,7 +25,7 @@ function Quote() {
 
     }
     return (
-        < QuoteText quoteText={quote} handleButtonClick={getQuote} />
+        <QuoteText quoteText={quote} handleButtonClick={getQuote} />
     );
 
 

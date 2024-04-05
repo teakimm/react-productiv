@@ -5,6 +5,9 @@ import TopTodo from "./TopTodo";
 import TodoForm from "./TodoForm";
 import EditableTodoList from "./EditableTodoList";
 
+
+const currentTodos = JSON.parse(localStorage.getItem("todos"));
+
 /** App for managing a todo list.
  *
  * Props:
@@ -16,14 +19,13 @@ import EditableTodoList from "./EditableTodoList";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp({ initialTodos = [] }) {
+function TodoApp({ initialTodos = currentTodos || [] }) {
   const [todos, setTodos] = useState(initialTodos);
 
   /** add a new todo to list */
   function create(newTodo) {
     const createdTodo = { ...newTodo, id: uuid() };
     setTodos(todos => [...todos, createdTodo]);
-
   }
 
   /** update a todo with updatedTodo */
@@ -39,6 +41,8 @@ function TodoApp({ initialTodos = [] }) {
   function remove(id) {
     setTodos(todos => todos.filter(t => t.id !== id));
   }
+
+  localStorage.setItem("todos", JSON.stringify(todos));
 
   return (
     <main className="TodoApp">
