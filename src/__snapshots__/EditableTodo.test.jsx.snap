@@ -1,0 +1,95 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`contains edit and delete buttons 1`] = `
+<div>
+  <div
+    class="EditableTodo"
+  >
+    <div
+      class="mb-3"
+    >
+      <div
+        class="float-end text-sm-end"
+      >
+        <button
+          class="EditableTodo-toggle btn-link btn btn-sm"
+        >
+          Edit
+        </button>
+        <button
+          class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+        >
+          Del
+        </button>
+      </div>
+      <div
+        class="Todo"
+      >
+        <div>
+          <b>
+            testTitle
+          </b>
+           
+          <small>
+            (
+            priority: 3
+            )
+          </small>
+        </div>
+        <div>
+          <small>
+            hello world
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div
+    class="EditableTodo"
+  >
+    <div
+      class="mb-3"
+    >
+      <div
+        class="float-end text-sm-end"
+      >
+        <button
+          class="EditableTodo-toggle btn-link btn btn-sm"
+        >
+          Edit
+        </button>
+        <button
+          class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+        >
+          Del
+        </button>
+      </div>
+      <div
+        class="Todo"
+      >
+        <div>
+          <b>
+            testTitle
+          </b>
+           
+          <small>
+            (
+            priority: 3
+            )
+          </small>
+        </div>
+        <div>
+          <small>
+            hello world
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

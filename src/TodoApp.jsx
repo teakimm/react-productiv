@@ -59,7 +59,9 @@ function TodoApp({ initialTodos = [] }) {
           <section className="mb-4">
             <h3>Top Todo</h3>
             {todos.length > 0
-              ? <TopTodo todos={todos} />
+              ? <div className="TodoApp-TopTodo">
+                <TopTodo todos={todos} />
+              </div>
               : "No todos yet!"}
           </section>
 

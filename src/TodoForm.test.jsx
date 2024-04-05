@@ -1,16 +1,14 @@
 import { describe, it, expect, test } from "vitest";
 
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import TodoForm from "./TodoForm";
 
 function save(evt) {
-    evt.preventDefault();
+    return;
 }
 
-
 const testTodos = {
-    id: "anyId",
     title: "testTitle",
     description: "hello world",
     priority: 3
@@ -20,18 +18,35 @@ it("renders without crashing", function () {
     render(<TodoForm handleSave={save} />);
 });
 
-it("contains initial test data", function () {
-    const result = render(<TodoForm initialFormData={testTodos} handleSave={save} />);
-    const { container } = render(<TodoForm initialFormData={testTodos} handleSave={save} />);
-    console.log(result);
+it("contains correct elements", function () {
+    const { container } = render(<TodoForm handleSave={save} />);
 
     expect(
-        result.queryByText("testTitle")
+        container.querySelector(".NewTodoForm")
     ).toBeInTheDocument();
 
     expect(
-        result.queryByText("hello world5")
-    ).not.toBeInTheDocument();
+        container.querySelector("#newTodo-description")
+    ).toBeInTheDocument();
+
+    expect(
+        container.querySelector("#newTodo-title")
+    ).toBeInTheDocument();
+
+    expect(
+        container.querySelector("#newTodo-priority")
+    ).toBeInTheDocument();
+});
+
+it("test submit", function () {
+    const { container, debug } = render(<TodoForm initialFormData={testTodos} handleSave={save} />);
+    const submitButton = container.querySelector(".NewTodoForm-addBtn");
+
+    fireEvent.click(submitButton);
+
+    expect(
+        container.querySelector("#newTodo-title").value
+    ).toBe("");
 });
 
 
