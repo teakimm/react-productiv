@@ -1,5 +1,6 @@
 import React from "react";
 import TodoApp from "./TodoApp";
+import Quote from './Quote';
 import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -15,7 +16,7 @@ function App() {
       <header className="container-fluid pt-4 pb-1">
         <div className="container">
           <h1>Prøductïv</h1>
-          <p className="lead">The best name in todo list management.</p>
+          < Quote />
         </div>
       </header>
 
