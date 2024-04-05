@@ -42,8 +42,17 @@ function TodoApp({ initialTodos = currentTodos || [] }) {
     setTodos(todos => todos.filter(t => t.id !== id));
   }
 
+  /** Complete or un-complete Todo */
   function complete(todo) {
-    setTodos(todos => todos.map(t => t.id === id ? [...t, t.completed = true] : t));
+    setTodos(todos => todos.map(t => t.id === todo.id
+      ? {
+        completed: !t.completed,
+        id: t.id,
+        title: t.title,
+        description: t.description,
+        priority: t.priority
+      }
+      : t));
 
   }
 

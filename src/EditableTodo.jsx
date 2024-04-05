@@ -38,7 +38,7 @@ function EditableTodo({ todo, update, remove, complete }) {
   }
 
   function completedOrNot() {
-    complete(todo.id);
+    complete(todo);
   }
 
   return (
