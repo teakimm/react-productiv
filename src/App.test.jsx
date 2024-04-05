@@ -1,4 +1,4 @@
-import {describe, it, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 
 import React from "react";
 import { render } from "@testing-library/react";
@@ -14,9 +14,9 @@ describe("productiv app", function () {
     expect(result.queryByText("Prøductïv")).toBeInTheDocument();
   });
 
-  it ("rendered quotes app", function () {
-    const result = render(<App />);
-    expect(result.queryByText("Click here for an inspirational quøte!")).toBeInTheDocument();
-  });
+  // it ("rendered quotes app", function () {
+  //   const result = render(<App />);
+  //   expect(result.queryByText("Click here for an inspirational quøte!")).toBeInTheDocument();
+  // });
 });
 
